@@ -1,0 +1,373 @@
+<div class="page-container">
+    <!--/content-inner-->
+    <div class="left-content">
+        <div class="mother-grid-inner">
+            <!--header start here-->
+            <div class="header-main">
+
+
+
+                <div class="profile_details w3l">
+                    <ul>
+                        <li class="dropdown profile_details_drop">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <div class="profile_img">
+                                    <span class="prfil-img"><img src="/../homepage/images/in4.jpg" alt=""> </span>
+                                    <div class="user-name">
+                                        <p>Thông tin</p>
+                                        <span>Nhân viên</span>
+                                    </div>
+                                    <i class="fa fa-angle-down"></i>
+                                    <i class="fa fa-angle-up"></i>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu drp-mnu">
+                                <li> <a href="#"><i class="fa fa-cog"></i> Cài đặt</a> </li>
+                                <li> <a href="#"><i class="fa fa-user"></i> Thông tin</a> </li>
+                                <li> <a href="/staffs/logout"><i class="fa fa-sign-out"></i> Đăng xuất</a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="clearfix"> </div>
+            </div>
+            <!--heder end here-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/staffs/homepage">Trang chủ</a> <i class="fa fa-angle-right"></i>
+                </li>
+            </ol>
+
+            <!-- grids -->
+            <div class="grids">
+
+
+
+                <div class="agile-calendar-grid">
+                    <div class="page">
+
+                        <div class="w3l-calendar-left">
+                            <div class="calendar-heading">
+                                <!-- 									<p>Noi dung</p>
+ -->
+                                <div class="agile-tables">
+                                    <div class="w3l-table-info">
+                                        <h2>Danh mục chức năng của nhân viên:</h2>
+                                        <div class="row">
+                                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+                                            </div>
+                                            <div class="agile-tables">
+
+                                                <section class="main-content">
+                                                    <div class="row">
+                                                        {{!-- #######################################################
+                                                        --}}
+                                                        {{#if tacgia1}}
+                                                        <div class="span3">
+                                                            <form action="/staffs/view/1" method="get">
+                                                                <label for="birthdaytime">Tìm tác giả có sách bán chạy
+                                                                    nhất theo
+                                                                    ngày:</label>
+                                                                <input type="date" name="date"
+                                                                    style="border: 2px solid lightskyblue;">
+                                                                <button type="submit"
+                                                                    style="background-color:rgba( 135,206,250,0.8);color: black;"><b>Search</b></button>
+                                                            </form>
+                                                        </div>
+                                                        {{/if}}
+                                                        {{#if tacgia2}}
+                                                        <div class="span3">
+                                                            <form action="/staffs/view/2" method="get">
+                                                                <label>Tìm tác giả có sách bán chạy nhất theo
+                                                                    tháng:</label>
+                                                                <input type="text" name="month"
+                                                                    style="border: 2px solid lightskyblue"
+                                                                    placeholder="mm/yyyy">
+                                                                <button type="submit"
+                                                                    style="background-color:rgba( 135,206,250,0.8);color: black;"><b>Search</b></button>
+                                                            </form>
+                                                        </div>
+                                                        {{/if}}
+                                                        {{#if trans1}}
+                                                        <div class="span3">
+                                                            <form action="/staffs/view/3" method="get">
+                                                                <label for="birthdaytime">Sách điện tử được mua trong
+                                                                    ngày:</label>
+                                                                <input type="date" name="date"
+                                                                    style="border: 2px solid lightskyblue;">
+                                                                <button type="submit"
+                                                                    style="background-color:rgba( 135,206,250,0.8);color: black;"><b>Search</b></button>
+                                                            </form>
+                                                        </div>
+                                                        {{/if}}
+                                                        {{#if trans2}}
+                                                        <div class="span3">
+                                                            <form action="/staffs/view/4" method="get">
+                                                                <label for="birthdaytime">Sách điện tử được thuê trong
+                                                                    ngày:</label>
+                                                                <input type="date" name="date"
+                                                                    style="border: 2px solid lightskyblue;">
+                                                                <button type="submit"
+                                                                    style="background-color:rgba( 135,206,250,0.8);color: black;"><b>Search</b></button>
+                                                            </form>
+                                                        </div>
+                                                        {{/if}}
+                                                        {{#if trans3}}
+                                                        <div class="span3">
+                                                            <form action="/staffs/view/8" method="get">
+                                                                <label for="birthdaytime">Sách truyền thống được mua
+                                                                    trong ngày:</label>
+                                                                <input type="date" name="date"
+                                                                    style="border: 2px solid lightskyblue;">
+                                                                <button type="submit"
+                                                                    style="background-color:rgba( 135,206,250,0.8);color: black;"><b>Search</b></button>
+                                                            </form>
+                                                        </div>
+                                                        {{/if}}
+                                                        {{#if trans4}}
+                                                        <div class="span3">
+                                                            <form action="/staffs/view/5" method="get">
+                                                                <label>Sách được mua nhiều nhất trong một tháng:</label>
+                                                                <input type="text" name="month"
+                                                                    style="border: 2px solid lightskyblue"
+                                                                    placeholder="mm/yyyy">
+                                                                <button type="submit"
+                                                                    style="background-color:rgba( 135,206,250,0.8);color: black;"><b>Search</b></button>
+                                                            </form>
+                                                        </div>
+                                                        {{/if}}
+                                                        {{#if trans5}}
+                                                        <div class="span3">
+                                                            <form action="/staffs/view/6" method="get">
+                                                                <label for="birthdaytime">Tổng sách được mua trong
+                                                                    ngày:</label>
+                                                                <input type="date" name="date"
+                                                                    style="border: 2px solid lightskyblue;">
+                                                                <button type="submit"
+                                                                    style="background-color:rgba( 135,206,250,0.8);color: black;"><b>Search</b></button>
+                                                            </form>
+                                                        </div>
+                                                        {{/if}}
+                                                        {{#if trans6}}
+                                                        <div class="span3">
+                                                            <form action="/staffs/view/7" method="get">
+                                                                <label for="birthdaytime">Tất cả sách được mua trong
+                                                                    ngày:</label>
+                                                                <input type="date" name="date"
+                                                                    style="border: 2px solid lightskyblue;">
+                                                                <button type="submit"
+                                                                    style="background-color:rgba( 135,206,250,0.8);color: black;"><b>Search</b></button>
+                                                            </form>
+                                                        </div>
+                                                        {{/if}}
+                                                </section>
+                                                {{#if requireAuthor}}
+                                                <table id="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>AID</th>
+                                                            <th>Tên tác giả</th>
+                                                            <th>Năm sinh</th>
+                                                            <th>Email</th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {{#each tacgia}}
+                                                        <tr class="danger">
+                                                            <td>{{this.AID}}</td>
+                                                            <td>{{this.HoTen}}</td>
+                                                            <td>{{this.NamSinh}}</td>
+                                                            <td>{{this.Email}}</td>
+                                                            {{/each}}
+                                                    </tbody>
+                                                </table>
+                                                {{/if}}
+                                                {{#if requireTrans}}
+                                                <table id="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Hóa đơn</th>
+                                                            <th>UID</th>
+                                                            <th>ISBN</th>
+                                                            <th>Hình thức</th>
+                                                            <th>Loại sách</th>
+                                                            <th>Số lượng</th>
+                                                            <th>Ngày lập</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {{#each donhang}}
+                                                        <tr class="danger">
+                                                            <td>{{this.HoaDon}}</td>
+                                                            <td>{{this.UID}}</td>
+                                                            <td>{{this.ISBN}}</td>
+                                                            <td>{{this.Loai}}</td>
+                                                            <td>{{this.LoaiSach}}</td>
+                                                            <td>{{this.SoLuong}}</td>
+                                                            <td>{{this.date}}</td>
+                                                        </tr>
+
+                                                        {{/each}}
+                                                    </tbody>
+                                                </table>
+                                                {{/if}}
+                                                {{#if requireBooks}}
+                                                <table id="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ISBN</th>
+                                                            <th>Tên sách</th>
+                                                            <th>Giá tiền</th>
+                                                            <th>Tên nhà xuất bản</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {{#each sach}}
+                                                        <tr class="danger">
+                                                            <td>{{this.ISBN}}</td>
+                                                            <td>{{this.TenSach}}</td>
+                                                            <td>{{this.GiaTien}} đ</td>
+                                                            <td>{{this.TenNhaXuatBan}}</td>
+                                                            {{/each}}
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                {{/if}}
+                                                {{#if requireBooksCount}}
+                                                <table id="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>ISBN</th>
+                                                            <th>Tên sách</th>
+                                                            <th>Giá tiền</th>
+                                                            <th>Tên nhà xuất bản</th>
+                                                            <th>Số lượng</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {{#each sach}}
+                                                        <tr class="danger">
+                                                            <td>{{this.ISBN}}</td>
+                                                            <td>{{this.TenSach}}</td>
+                                                            <td>{{this.GiaTien}} đ</td>
+                                                            <td>{{this.TenNhaXuatBan}}</td>
+                                                            <td>{{this.SoGiaoDich}}</td>
+                                                            {{/each}}
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                {{/if}}
+                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //grids -->
+                <!--photoday-section-->
+
+
+                <div class="col-sm-4 wthree-crd">
+                    <div class="card">
+                        <div class="card-body">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!--//photoday-section-->
+                <!-- script-for sticky-nav -->
+                <script>
+                    $(document).ready(function () {
+                        var navoffeset = $(".header-main").offset().top;
+                        $(window).scroll(function () {
+                            var scrollpos = $(window).scrollTop();
+                            if (scrollpos >= navoffeset) {
+                                $(".header-main").addClass("fixed");
+                            } else {
+                                $(".header-main").removeClass("fixed");
+                            }
+                        });
+
+                    });
+                </script>
+                <!-- /script-for sticky-nav -->
+                <!--inner block start here-->
+                <div class="inner-block">
+
+                </div>
+                <!--inner block end here-->
+                <!--copy rights start here-->
+                <div class="copyrights">
+                    <p>© 2020 N5QPT. All Rights Reserved | Design by <a href="http://w3layouts.com/"
+                            target="_blank">W3layouts</a> </p>
+                </div>
+                <!--COPY rights end here-->
+            </div>
+        </div>
+        <!--//content-inner-->
+        <!--/sidebar-menu-->
+        <div class="sidebar-menu">
+            <header class="logo1">
+                <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+            </header>
+            <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+            <div class="menu">
+                <ul id="menu">
+                    <li><a href="/staffs/homepage"><i class="fa fa-tachometer"></i> <span>Trang chủ</span>
+                            <div class="clearfix"></div>
+                        </a></li>
+
+
+                    <li id="menu-academico"><a href="/staffs/order"><i class="fa fa-envelope nav_icon"></i><span>Đơn
+                                hàng</span>
+                            <div class="clearfix"></div>
+                        </a></li>
+                    <!-- <li><a href="gallery.html"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Gallery</span><div class="clearfix"></div></a></li> -->
+
+                    <li id="menu-academico"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>Sản
+                                phẩm</span> <span class="fa fa-angle-right" style="float: right"></span>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/staffs/addBook">Quản lý sách</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/staffs/addAuthor">Quản lý tác giả</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/staffs/addNXB">Quản lý nhà xuất bản</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/staffs/order">Quản lý đơn hàng</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/staffs/warehouse">Quản lý kho</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li id="menu-academico"><a href="#"><i class="fa fa-file-text-o"></i> <span>Khác</span> <span
+                                class="fa fa-angle-right" style="float: right"></span>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="calendar.html">Lịch</a></li>
+                            <!-- <li id="menu-academico-avaliacoes" ><a href="signin.html">Đăng nhập</a></li>
+											<li id="menu-academico-avaliacoes" ><a href="signup.html">Đăng ký</a></li> -->
+
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>

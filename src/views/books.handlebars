@@ -1,0 +1,402 @@
+<div id="top-bar" class="container">
+    <div class="row">
+        <div class="span4">
+            <form action="/users/searchText" method="post" class="search_form">
+                <input type="text" class="search-query form-control input-group" Placeholder="Search book."
+                    name="fieldBook">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary rounded-circle btnpro" type="submit" id="btn-search">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </span>
+
+            </form>
+            <form action="/users/publishing" method="post" class="search_form">
+                <input type="number" class="search-query form-control input-group" Placeholder="Publishing year."
+                    name="year">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary rounded-circle btnpro" type="submit" id="btn-search">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </span>
+            </form>
+        </div>
+        <div class="span8">
+            <div class="account pull-right">
+                <ul class="user-menu">
+                    <li><a href="/users/profile">Tài khoản</a></li>
+                    <li><a href="/users/cart">Giỏ hàng</a></li>
+                    <li><a href="/users/checkout">Thanh toán</a></li>
+                    <li><a href="/users/logout">Đăng xuất</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wrapper" class="container">
+    <section class="navbar main-menu">
+        <div class="navbar-inner main-menu">
+            <a href="/users/homepage" class="logo pull-left">
+                <h4 class="title">TIKIHO </h4>
+            </a>
+            <nav id="menu" class="pull-right">
+                <ul>
+                    <li><a href="#">Tìm kiếm nâng cao</a>
+                        <ul>
+                            <li><a href="/users/tacgia-theloai">Tìm kiếm tác giả theo cùng 1 lĩnh vực</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Nhà xuất bản</a>
+                        <ul>
+                            {{#each NXB}}
+                            <li><a href="/users/books/nxb/{{this.TenNhaXuatBan}}">{{this.TenNhaXuatBan}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Tác giả</a>
+                        <ul>
+                            {{#each tacgia}}
+                            <li><a href="/users/books/tacgia/{{this.HoTen}}">{{this.HoTen}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                    <!-- <li><a href="./products.html">Man</a></li>						
+								<li><a href="./products.html">Hangbag</a></li> -->
+                    <li><a href="#">Lĩnh vực</a>
+                        <ul>
+                            {{#each Ulinhvuc}}
+                            <li><a href="/users/books/linhvuc/{{this.ALinhVuc}}">{{this.ALinhVuc}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <section class="homepage-slider" id="home-slider">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+
+                    <img src="/../../images/books/bia1.jpg" style="width: 1300px; height: 250px;" alt="anh bia 1" />
+                    <div class="intro">
+                        <!--<h1>Laptop mua online</h1>
+							<p><span>Giảm thêm đến 1.000.000đ</span></p>
+							<p><span>Áp dụng kèm theo khuyến mãi trả thẳng khác</span></p> -->
+                    </div>
+                </li>
+                <li>
+                    <img src="/../../images/books/bia2.PNG" style="width: 1300px; height: 250px;" alt="anh bia 2" />
+
+                </li>
+                <li>
+                    <img src="/../../images/books/bia3.png" style="width: 1300px; height: 250px;" alt="anh bia 3" />
+
+                </li>
+                <li>
+                    <img src="/../../images/books/bia4.png" style="width: 1300px; height: 250px;" alt="anh bia 4" />
+
+                </li>
+                <li>
+                    <img src="/../../images/books/bia5.jpg" style="width: 1300px; height: 250px;" alt="anh bia 5" />
+
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="header_text">
+        Website chúng tôi chuyên cung cấp các sản phẩm chất lượng có uy tín và mới nhất trên thị trường hiện nay
+        <br />Hãy ghé thăm trang web của chúng tôi và đừng bỏ lỡ các sản phẩm mới nhé!
+    </section>
+    <hr>
+    <h4><span>Result Book for {{searchText}}</span></h4>
+    </section>
+    <section class="main-content">
+
+        <div class="row">
+            <div class="span9">
+                <ul class="thumbnails listing-products">
+                    {{#each books}}
+                    <li class="span3">
+                        <div class="product-box">
+                            <span class="sale_tag"></span>
+                            <a href="/users/book_detail/{{this.ISBN}}"><img alt=""
+                                    src="/../../images/books/{{this.ISBN}}.png"
+                                    style="width: 150px; height: 200px;"></a><br />
+                            <a href="/users/book_detail/{{this.ISBN}}" class="title">{{this.TenSach}}</a><br />
+                            {{!-- <a href="#" class="category"></a> --}}
+                            <p class="price">{{this.GiaTien}}đ</p>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                <hr>
+                <div class="pagination pagination-small pagination-centered">
+                    <ul>
+                        <li><a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span>Prev</span>
+                            </a>
+                        </li>
+
+                        <li class="active"><a href="products.html">1</a></li>
+                        <li><a href="product2.html">2</a></li>
+                        <li><a href="product2.html" aria-label="Next">
+
+                                <span>Next</span>
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="span3 col">
+                <div id="menu-filter">
+                    <h3>Mức Giá</h3>
+                    <div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox1" type="checkbox" class="input-lg">
+                            <label for="checkbox1">
+                                Tất cả
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox2" type="checkbox" class="input-lg">
+                            <label for="checkbox2">
+                                Dưới 50.000đ
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox3" type="checkbox" class="input-lg">
+                            <label for="checkbox3">
+                                Từ 50.000 - 100.000đ
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox4" type="checkbox" class="input-lg">
+                            <label for="checkbox4">
+                                Từ 100.000 - 150.000đ
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox5" type="checkbox" class="input-lg">
+                            <label for="checkbox5">
+                                Từ 150.000 - 200.000đ
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox6" type="checkbox" class="input-lg">
+                            <label for="checkbox6">
+                                Trên 200.000đ
+                            </label>
+                        </div>
+                    </div>
+                    <h3>Thể loại</h3>
+                    <div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox11" type="checkbox" class="input-lg">
+                            <label for="checkbox11">
+                                Tất cả
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox22" type="checkbox" class="input-lg">
+                            <label for="checkbox22">
+                                Tiểu thuyết
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox33" type="checkbox" class="input-lg">
+                            <label for="checkbox33">
+                                Kinh tế
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox44" type="checkbox" class="input-lg">
+                            <label for="checkbox44">
+                                Kỹ năng sống
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox55" type="checkbox" class="input-lg">
+                            <label for="checkbox55">
+                                KHMT
+                            </label>
+                        </div>
+
+                    </div>
+                    <h3>Nhà xuất bản</h3>
+                    <div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox111" type="checkbox" class="input-lg">
+                            <label for="checkbox111">
+                                Tất cả
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox222" type="checkbox" class="input-lg">
+                            <label for="checkbox222">
+                                Kim Đồng
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox333" type="checkbox" class="input-lg">
+                            <label for="checkbox333">
+                                Trẻ
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox444" type="checkbox" class="input-lg">
+                            <label for="checkbox444">
+                                Hồng Đức
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox555" type="checkbox" class="input-lg">
+                            <label for="checkbox555">
+                                Phương Nam
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox666" type="checkbox" class="input-lg">
+                            <label for="checkbox666">
+                                Huyền Trang
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox777" type="checkbox" class="input-lg">
+                            <label for="checkbox777">
+                                Nhật Long
+                            </label>
+                        </div>
+                    </div>
+                    <h3>Năm xuất bản</h3>
+                    <div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox8" type="checkbox" class="input-lg">
+                            <label for="checkbox8">
+                                Tất cả
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox9" type="checkbox" class="input-lg">
+                            <label for="checkbox9">
+                                2015 - 2020
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox10" type="checkbox" class="input-lg">
+                            <label for="checkbox10">
+                                2010 - 2015
+                            </label>
+                        </div>
+                        <div class="checkbox checkbox-primary">
+                            <input id="checkbox12" type="checkbox" class="input-lg">
+                            <label for="checkbox12">
+                                2000 - 2010
+                            </label>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="block">
+                    <h4 class="title">
+                        <span class="pull-left"><span class="text">Ngẫu nhiên</span></span>
+                        <span class="pull-right">
+                            <a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button"
+                                href="#myCarousel" data-slide="next"></a>
+                        </span>
+                    </h4>
+                    <div id="myCarousel" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="active item">
+                                <ul class="thumbnails listing-products">
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <span class="sale_tag"></span>
+                                            <a href="/users/book_detail/1"><img alt="" src="/../../images/books/1.PNG"
+                                                    style="width: 150px; height: 200px;"></a><br />
+                                            <a href="/users/book_detail/1" class="title">Hoàng tử bé</a><br />
+                                            {{!-- <a href="#" class="category">7130U/4GB/128GB/Win10</a> --}}
+                                            <p class="price">100.000đ</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="item">
+                                <ul class="thumbnails listing-products">
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <a href="/users/book_detail/2"><img alt="" src="/../../images/books/2.PNG"
+                                                    style="width: 150px; height: 200px;"></a><br />
+                                            <a href="/users/book_detail/2" class="title">Đọc sách điểm
+                                                sách</a><br />
+                                            {{!-- <a href="#" class="category">6006U/4GB/1TB/Win10</a> --}}
+                                            <p class="price">100.000đ</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <script type="text/javascript">
+                $("#menu-filter").accordion();
+            </script>
+
+    </section>
+    <section style="background-color: #857474;" id="footer-bar">
+        <div class="row">
+            <div class="span3">
+                <h4>Điều Hướng</h4>
+                <ul class="nav">
+                    <li><a href="/users/homepage">Trang chủ</a></li>
+                    <li><a href="./about.html">Thông tin</a></li>
+                    <li><a href="./contact.html">Liên hệ</a></li>
+                    <li><a href="/users/cart">Giỏ hàng</a></li>
+                    <li><a href="/users/login">Đăng nhập</a></li>
+                </ul>
+            </div>
+            <div class="span4">
+                <h4>My Account</h4>
+                <ul class="nav">
+                    <li><a href="#">Tài khoản của tôi</a></li>
+                    <li><a href="#">Lịch sử đặt hàng</a></li>
+                    <li><a href="#">Danh sách yêu thích</a></li>
+                    <!-- <li><a href="#">Làm mới</a></li> -->
+                </ul>
+            </div>
+            <div class="span5">
+                <p class="logo">
+                    <!-- <img src="themes/images/logo.png" class="site_logo" alt=""> -->
+                <h4>TIKIHO</h4>
+                </p>
+                <p style="color: white;">Website chúng tôi chuyên cung cấp các sản phẩm chất lượng có uy tín và mới nhất
+                    trên thị trường hiện nay
+                    <br />Hãy ghé thăm trang web của chúng tôi và đừng bỏ lỡ các sản phẩm mới nhé!
+                </p>
+                <div style="margin-left: 60px;">
+                    <a href="#" class="button">
+                        <i class="fab fa-facebook-f fa-lg"></i>
+                    </a>
+                    <a href="#" class="button">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" class="button">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="copyright">
+        <span>Copyright 2020 bootstrappage template All right reserved.</span>
+    </section>
+</div>

@@ -1,0 +1,678 @@
+<div id="top-bar" class="container">
+	<div class="row">
+		<div class="span4">
+			<form action="/users/searchText" method="post" class="search_form">
+				<input type="text" class="search-query form-control input-group" Placeholder="Search book."
+					name="fieldBook">
+				<span class="input-group-btn">
+					<button class="btn btn-primary rounded-circle btnpro" type="submit" id="btn-search">
+						<span class="fa fa-search"></span>
+					</button>
+				</span>
+
+			</form>
+			<form action="/users/publishing" method="post" class="search_form">
+				<input type="number" class="search-query form-control input-group" Placeholder="Publishing year."
+					name="year">
+				<span class="input-group-btn">
+					<button class="btn btn-primary rounded-circle btnpro" type="submit" id="btn-search">
+						<span class="fa fa-search"></span>
+					</button>
+				</span>
+			</form>
+		</div>
+		<div class="span8">
+			<div class="account pull-right">
+				<ul class="user-menu">
+					<li><a href="/users/profile">Tài khoản</a></li>
+					<li><a href="/users/cart">Giỏ hàng</a></li>
+					<li><a href="#">Thanh toán</a></li>
+					<li><a href="/users/logout">Đăng xuất</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="wrapper" class="container">
+	<section class="navbar main-menu">
+		<div class="navbar-inner main-menu">
+			<a href="/users/homepage" class="logo pull-left">
+				<h4 class="title">TIKIHO </h4>
+			</a>
+			<nav id="menu" class="pull-right">
+				<ul>
+					<li><a href="#">Tìm kiếm nâng cao</a>
+						<ul>
+							<li><a href="/users/tacgia-theloai">Tìm kiếm tác giả theo cùng 1 lĩnh vực</a></li>
+						</ul>
+					</li>
+
+					<li><a href="#">Nhà xuất bản</a>
+						<ul>
+							{{#each NXB}}
+							<li><a href="/users/books/nxb/{{this.TenNhaXuatBan}}">{{this.TenNhaXuatBan}}</a></li>
+							{{/each}}
+						</ul>
+					</li>
+
+					<li><a href="#">Tác giả</a>
+						<ul>
+							{{#each tacgia}}
+							<li><a href="/users/books/tacgia/{{this.HoTen}}">{{this.HoTen}}</a></li>
+							{{/each}}
+						</ul>
+					</li>
+					<!-- <li><a href="./products.html">Man</a></li>						
+								<li><a href="./products.html">Hangbag</a></li> -->
+					<li><a href="#">Lĩnh vực</a>
+						<ul>
+							{{#each Ulinhvuc}}
+							<li><a href="/users/books/linhvuc/{{this.ALinhVuc}}">{{this.ALinhVuc}}</a></li>
+							{{/each}}
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+	<section class="homepage-slider" id="home-slider">
+		<div class="flexslider">
+			<ul class="slides">
+				<li>
+
+					<img src="../images/books/bia1.jpg" style="width: 1300px; height: 250px;" alt="anh bia 1" />
+					<div class="intro">
+						<!--<h1>Laptop mua online</h1>
+							<p><span>Giảm thêm đến 1.000.000đ</span></p>
+							<p><span>Áp dụng kèm theo khuyến mãi trả thẳng khác</span></p> -->
+					</div>
+				</li>
+				<li>
+					<img src="../images/books/bia2.PNG" style="width: 1300px; height: 250px;" alt="anh bia 2" />
+
+				</li>
+				<li>
+					<img src="../images/books/bia3.png" style="width: 1300px; height: 250px;" alt="anh bia 3" />
+
+				</li>
+				<li>
+					<img src="../images/books/bia4.png" style="width: 1300px; height: 250px;" alt="anh bia 4" />
+
+				</li>
+				<li>
+					<img src="../images/books/bia5.jpg" style="width: 1300px; height: 250px;" alt="anh bia 5" />
+
+				</li>
+			</ul>
+		</div>
+	</section>
+	<section class="header_text">
+		Website chúng tôi chuyên cung cấp các sản phẩm chất lượng có uy tín và mới nhất trên thị trường hiện nay
+		<br />Hãy ghé thăm trang web của chúng tôi và đừng bỏ lỡ các sản phẩm mới nhé!
+	</section>
+	<section class="main-content">
+		<div class="row">
+			<div class="span12">
+				<br />
+				<div class="row">
+					<div class="span12">
+						<h4 class="title">
+
+							<span class="pull-left"><span class="text"><span class="line"><a href="#"><strong>Các sản
+												phẩm gần đây nhất</strong></a></span></span>
+							</span>
+
+							<span class="pull-right">
+								<a class="left button" href="#myCarousel-2" data-slide="prev"></a><a
+									class="right button" href="#myCarousel-2" data-slide="next"></a>
+							</span>
+						</h4>
+						<div id="myCarousel-2" class="myCarousel carousel slide">
+							<div class="carousel-inner">
+								<div class="active item">
+									<ul class="thumbnails">
+										<li class="span3">
+											<div class="product-box">
+												<span class="sale_tag"></span>
+												<p><a href="/users/book_detail/1"><img src="../images/books/1.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="#" class="title">Hoàng tử bé</a><br />
+												<a href="#" class="category">
+													<p class="price">100.000đ</p>
+												</a>
+
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/2"><img src="../images/books/2.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="#" class="title">Đọc sách điểm sách</a><br />
+												<a href="#" class="category">
+													<p class="price">120.000đ</p>
+												</a>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/3"><img src="../images/books/3.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="#" class="title">Muôn kiếp nhân sinh</a><br />
+												<a href="#" class="category">
+													<p class="price">150.000đ</p>
+												</a>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/4"><img src="../images/books/4.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="#" class="title">Trò đùa của sự ngẫu nhiên</a><br />
+												<a href="#" class="category">
+													<p class="price">150.000đ</p>
+												</a>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="item">
+									<ul class="thumbnails">
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/5"><img src="../images/books/5.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="#" class="title">Đọc sách công hưởng</a><br />
+												{{!-- <a href="#" class="category">Quis nostrud</a> --}}
+												<p class="price">180.500đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/6"><img src="../images/books/6.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="#" class="title">Người trong muôn nghề</a><br />
+												{{!-- <a href="#" class="category">Commodo consequat</a> --}}
+												<p class="price">160.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/7"><img src="../images/books/7.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="#" class="title">Làn sóng thứ 3</a><br />
+												{{!-- <a href="#" class="category">World once</a> --}}
+												<p class="price">80.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/8"><img src="../images/books/8.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/8" class="title">Sống thực tế giữa đời thực
+													dụng</a><br />
+												{{!-- <a href="#" class="category">Quis nostrud</a> --}}
+												<p class="price">100.000đ</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+
+								<!-- -->
+								<div class="item">
+									<ul class="thumbnails">
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/9"><img src="../images/books/9.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/9" class="title">Đừng chết bởi
+													canxi</a><br />
+												{{!-- <a href="#" class="category">Quis nostrud</a> --}}
+												<p class="price">89.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/10"><img src="../images/books/10.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/10" class="title">Dăm ba cái tuổi
+													trẻ</a><br />
+												{{!-- <a href="#" class="category">Commodo consequat</a> --}}
+												<p class="price">50.000đ</p>
+											</div>
+										</li>
+
+									</ul>
+								</div>
+								<!-- -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<br />
+				<div class="row">
+					<div class="span12">
+						<h4 class="title">
+
+							<span class="pull-left"><span class="text"><span class="line"><a href="#"><strong>Các sản
+												phẩm bán chạy nhất</strong></a></span></span>
+							</span>
+
+							<span class="pull-right">
+								<a class="left button" href="#myCarousel-3" data-slide="prev"></a><a
+									class="right button" href="#myCarousel-3" data-slide="next"></a>
+							</span>
+						</h4>
+						<div id="myCarousel-3" class="myCarousel carousel slide">
+							<div class="carousel-inner">
+								<div class="active item">
+									<ul class="thumbnails">
+										<li class="span3">
+											<div class="product-box">
+												<span class="sale_tag"></span>
+												<p><a href="/users/book_detail/11"><img src="../images/books/11.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/11" class="title">Lối sống đơn giản
+													của người Nhật</a><br />
+												<a href="#" class="category">
+													<p class="price">110.000đ</p>
+												</a>
+
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/12"><img src="../images/books/12.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/12" class="title">Để có một tưởng
+													lai</a><br />
+												<a href="#" class="category">
+													<p class="price">120.000đ</p>
+												</a>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/13"><img src="../images/books/13.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/13" class="title">Vẽ đường đời ta
+													đi</a><br />
+												<a href="#" class="category">
+													<p class="price">150.000đ</p>
+												</a>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/14"><img src="../images/books/14.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/14" class="title">Rồi một ngày bạn sẽ
+													hiểu</a><br />
+												<a href="#" class="category">
+													<p class="price">50.000đ</p>
+												</a>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="item">
+									<ul class="thumbnails">
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/15"><img src="../images/books/15.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="#" class="title">Xa lâu để gặp lại</a><br />
+												{{!-- <a href="#" class="category">Quis nostrud</a> --}}
+												<p class="price">50.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/16"><img src="../images/books/16.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/16" class="title">Bạn tốt</a><br />
+												{{!-- <a href="#" class="category">Commodo consequat</a> --}}
+												<p class="price">165.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/17"><img src="../images/books/17.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/17" class="title">Đắc nhân
+													tâm</a><br />
+												{{!-- <a href="#" class="category">World once</a> --}}
+												<p class="price">80.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/18"><img src="../images/books/18.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/18" class="title">tuổi trẻ đáng giá bao
+													nhiêu</a><br />
+												{{!-- <a href="#" class="category">Quis nostrud</a> --}}
+												<p class="price">50.000đ</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+
+								<!-- -->
+								<div class="item">
+									<ul class="thumbnails">
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/19"><img src="../images/books/19.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/19" class="title">Đời ngắn đừng ngủ
+													dài</a><br />
+												{{!-- <a href="#" class="category">Quis nostrud</a> --}}
+												<p class="price">50.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/20"><img src="../images/books/20.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/20" class="title">Giải mã siêu trí
+													nhớ/a><br />
+													{{!-- <a href="#" class="category">Commodo consequat</a> --}}
+													<p class="price">50.000đ</p>
+											</div>
+										</li>
+
+									</ul>
+								</div>
+								<!-- -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<br />
+				<div class="row">
+					<div class="span12">
+						<h4 class="title">
+
+							<span class="pull-left"><span class="text"><span class="line"><a href="#"><strong>Các sản
+												phẩm được xem nhiều nhất</strong></a></span></span>
+							</span>
+
+							<span class="pull-right">
+								<a class="left button" href="#myCarousel-4" data-slide="prev"></a><a
+									class="right button" href="#myCarousel-4" data-slide="next"></a>
+							</span>
+						</h4>
+						<div id="myCarousel-4" class="myCarousel carousel slide">
+							<div class="carousel-inner">
+								<div class="active item">
+									<ul class="thumbnails">
+										<li class="span3">
+											<div class="product-box">
+												<span class="sale_tag"></span>
+												<p><a href="/users/book_detail/21"><img src="../images/books/21.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/21" class="title">Leader
+													Ship</a><br />
+												<a href="#" class="category">
+													<p class="price">110.000đ</p>
+												</a>
+
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/22"><img src="../images/books/22.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/22" class="title">Tony trên đường
+													băng</a><br />
+												{{!-- <a href="#" class="category"> --}}
+													<p class="price">79.000đ</p>
+												</a>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/23"><img src="../images/books/23.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/23" class="title">Tự học 2000 từ
+													vựng</a><br />
+												{{!-- <a href="#" class="category"> --}}
+													<p class="price">79.000đ</p>
+												</a>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/24"><img src="../images/books/24.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/24" class="title">Con chim xanh biếc
+													bay về</a><br />
+												{{!-- <a href="#" class="category"> --}}
+													<p class="price">50.000đ</p>
+												</a>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="item">
+									<ul class="thumbnails">
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/25"><img src="../images/books/25.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/25" class="title">Từ điển tiếng
+													em</a><br />
+												{{!-- <a href="#" class="category">Quis nostrud</a> --}}
+												<p class="price">50.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/26"><img src="../images/books/26.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/26" class="title">Từ điển tiếng
+													em</a><br />
+												{{!-- <a href="#" class="category">Commodo consequat</a> --}}
+												<p class="price">50.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/27"><img src="../images/books/27.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/27" class="title">Biên niên cô
+													đơn</a><br />
+												{{!-- <a href="#" class="category">World once</a> --}}
+												<p class="price">50.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/28"><img src="../images/books/28.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/28" class="title">Đàn ông sao
+													hỏa</a><br />
+												{{!-- <a href="#" class="category">Quis nostrud</a> --}}
+												<p class="price">50.000đ</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+
+								<!-- -->
+								<div class="item">
+									<ul class="thumbnails">
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/29"><img src="../images/books/29.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/29" class="title">Đừng lựa chọn an
+													nhàn khi còn trẻ</a><br />
+												{{!-- <a href="#" class="category">Quis nostrud</a> --}}
+												<p class="price">50.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="/users/book_detail/30"><img src="../images/books/30.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="/users/book_detail/30" class="title">7 thói
+													quen</a><br />
+												{{!-- <a href="#" class="category">Commodo consequat</a> --}}
+												<p class="price">50.000đ</p>
+											</div>
+										</li>
+
+									</ul>
+								</div>
+								<!-- -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<br />
+				<div class="row">
+					<div class="span12">
+						<h4 class="title">
+
+							<span class="pull-left"><span class="text"><span class="line"><a href="#"><strong>Các sản
+												phẩm khác</strong></a></span></span>
+							</span>
+
+							<span class="pull-right">
+								<a class="left button" href="#myCarousel-5" data-slide="prev"></a><a
+									class="right button" href="#myCarousel-5" data-slide="next"></a>
+							</span>
+						</h4>
+						<div id="myCarousel-5" class="myCarousel carousel slide">
+							<div class="carousel-inner">
+								<div class="active item">
+									<div class="item">
+										<ul class="thumbnails">
+											{{#each books}}
+											<li class="span3">
+												<div class="product-box">
+													<span class="sale_tag"></span>
+													<p><a href="/users/book_detail/{{this.ISBN}}"><img
+																src="../images/books/{{this.ISBN}}.png"
+																style="width: 150px; height: 200px;" alt="" /></a></p>
+													<a href="#" class="title">{{this.TenSach}}</a><br />
+													<a href="#" class="category">
+														<p class="price">{{this.GiaTien}}đ</p>
+													</a>
+
+												</div>
+											</li>
+											{{/each}}
+										</ul>
+									</div>
+								</div>
+								<div class="item">
+									<ul class="thumbnails">
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="#"><img src="../images/books/31.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="#" class="title">Lược sử loại người</a><br />
+												{{!-- <a href="#" class="category">Quis nostrud</a> --}}
+												<p class="price">50.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="#"><img src="../images/books/32.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="#" class="title">Sống cho chính tôi</a><br />
+												{{!-- <a href="#" class="category">Commodo consequat</a> --}}
+												<p class="price">50.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="#"><img src="../images/books/33.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="#" class="title">Mắc biếc</a><br />
+												{{!-- <a href="#" class="category">World once</a> --}}
+												<p class="price">50.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="#"><img src="../images/books/34.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="#" class="title">Quis nostrud exerci</a><br />
+												<a href="#" class="category">Quis nostrud</a>
+												<p class="price">16.500.000đ</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+
+								<!-- -->
+								<div class="item">
+									<ul class="thumbnails">
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="#"><img src="../images/books/35.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="#" class="title">Know exactly</a><br />
+												<a href="#" class="category">Quis nostrud</a>
+												<p class="price">28.500.000đ</p>
+											</div>
+										</li>
+										<li class="span3">
+											<div class="product-box">
+												<p><a href="#"><img src="../images/books/36.PNG"
+															style="width: 150px; height: 200px;" alt="" /></a></p>
+												<a href="#" class="title">Ut wisi enim ad</a><br />
+												<a href="#" class="category">Commodo consequat</a>
+												<p class="price">19.500.000đ</p>
+											</div>
+										</li>
+
+									</ul>
+								</div>
+								<!-- -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<div class="row feature_box">
+		<div class="span4">
+			<div class="service">
+				<div class="responsive">
+					<img src="../homepage/themes/images/feature_img_2.png" alt="" />
+					<h4>THIẾT KẾ <strong>HIỆN ĐẠI</strong></h4>
+					<p>Các sản phẩm được thiết kế theo mẫu mã hiện đại, thời thượng phù hợp với xu hướng người dùng hiện
+						nay.</p>
+				</div>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="service">
+				<div class="customize">
+					<img src="../homepage/themes/images/feature_img_1.png" alt="" />
+					<h4>GIAO HÀNG <strong>MIỄN PHÍ</strong></h4>
+					<p>Sản phầm được giao hàng nhanh, gọn bằng nhiều hình thức nhằm đáp ứng tốt yêu cầu của khách hàng.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="service">
+				<div class="support">
+					<img src="../homepage/themes/images/feature_img_3.png" alt="" />
+					<h4>PHỤC VỤ <strong>24/7</strong></h4>
+					<p>Khách hàng luôn là ưu tiên hàng đầu và được phục vụ 24/7.</p>
+				</div>
+			</div>
+		</div>
+	</div>

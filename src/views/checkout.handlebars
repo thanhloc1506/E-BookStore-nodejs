@@ -1,0 +1,281 @@
+<div id="top-bar" class="container">
+	<div class="row">
+		<div class="span4">
+			<form method="POST" class="search_form">
+				<div class="input-group">
+					<input type="text" class="search-query form-control input-group" Placeholder="My laptop.">
+					<span class="input-group-btn">
+						<button class="btn btn-primary rounded-circle btnpro" type="button" id="btn-search">
+							<span class="fa fa-search"></span>
+						</button>
+					</span>
+
+				</div>
+			</form>
+		</div>
+		<div class="span8">
+			<div class="account pull-right">
+				<ul class="user-menu">
+					<li><a href="/users/profile">Tài khoản</a></li>
+					<li><a href="/users/cart">Giỏ hàng</a></li>
+					<li><a href="/users/checkout">Thanh toán</a></li>
+					<li><a href="/users/logout">Đăng xuất</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="wrapper" class="container">
+	<section class="navbar main-menu">
+		<div class="navbar-inner main-menu">
+			<a href="/users/homepage" class="logo pull-left">
+				<h4 class="title">TIKIHO</h4>
+			</a>
+			<nav id="menu" class="pull-right">
+				<ul>
+					<li><a href="#">Tìm kiếm nâng cao</a>
+						<ul>
+							<li><a href="/users/tacgia-theloai">Tìm kiếm tác giả theo cùng 1 lĩnh vực</a></li>
+						</ul>
+					</li>
+
+					<li><a href="#">Nhà xuất bản</a>
+						<ul>
+							{{#each NXB}}
+							<li><a href="/users/books/nxb/{{this.TenNhaXuatBan}}">{{this.TenNhaXuatBan}}</a></li>
+							{{/each}}
+						</ul>
+					</li>
+
+					<li><a href="#">Tác giả</a>
+						<ul>
+							{{#each tacgia}}
+							<li><a href="/users/books/tacgia/{{this.HoTen}}">{{this.HoTen}}</a></li>
+							{{/each}}
+						</ul>
+					</li>
+					<!-- <li><a href="./products.html">Man</a></li>						
+								<li><a href="./products.html">Hangbag</a></li> -->
+					<li><a href="#">Lĩnh vực</a>
+						<ul>
+							{{#each Ulinhvuc}}
+							<li><a href="/users/books/linhvuc/{{this.ALinhVuc}}">{{this.ALinhVuc}}</a></li>
+							{{/each}}
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+	<section class="header_text sub">
+		<img class="pageBanner" src="../images/books/bia4.png" alt="New products">
+		<h4><span>Thanh Toán</span></h4>
+	</section>
+	<section class="main-content">
+		<div class="row">
+			<div class="span12">
+				<div class="accordion" id="accordion2">
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
+								href="#collapseOne">Thông Tin Đơn Hàng</a>
+						</div>
+						<div id="collapseOne" class="accordion-body in collapse">
+							<div class="accordion-inner">
+								<div class="row-fluid">
+									<div class="span12">
+										<h4 class="title"><span class="text"><strong>Đơn Hàng</strong> Của Bạn </span>
+										</h4>
+										<table class="table table-striped">
+											<thead>
+												<tr>
+													<th>Mặt hàng</th>
+													<th> Tên Sản Phẩm </th>
+													<th> Số Lượng </th>
+													<th>Hình Thức</th>
+													<th>Loại Sách</th>
+													<th> Giá Tiền </th>
+													<th> Tổng </th>
+												</tr>
+											</thead>
+											<tbody>
+												{{!-- Lấy từ database lên --}}
+												{{#each carts}}
+												<tr class="each">
+													<td
+														id="{{this.isbn}},{{soluong}},{{this.mahoadon}},{{this.GiaTien}},{{this.Loai}},{{this.LoaiSach}}">
+														<a href="#"><img alt="" src="../images/books/{{this.isbn}}.png"
+																style="width: 80px; height: 120px;"></a></td>
+													<td>{{this.TenSach}}</td>
+													<td>
+														{{this.soluong}}
+													</td>
+													<td>
+														{{this.Loai}}
+													</td>
+													<td>{{this.LoaiSach}}</td>
+													<td>{{this.GiaTien}}đ</td>
+													<td>{{this.tong}}đ</td>
+
+												</tr>
+												{{/each}}
+												<tr>
+													<td>&nbsp;</td>
+													<td>&nbsp;</td>
+													<td>&nbsp;</td>
+													<td>&nbsp;</td>
+													<td>&nbsp;</td>
+													<td>&nbsp;</td>
+													<td><strong>{{tong}}đ</strong></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
+								href="#collapseTwo">Tài khoản &amp; Chi tiết hóa đơn</a>
+						</div>
+						<div id="collapseTwo" class="accordion-body collapse">
+							<div class="accordion-inner">
+								<div class="row-fluid">
+									<div class="span6">
+										<h4>Thông tin cá nhân</h4>
+										<div class="control-group">
+											<label class="control-label">UID</label>
+											<div class="controls">
+												<input type="text" value="{{uid}}" class="input-xlarge" disabled>
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Họ và Tên</label>
+											<div class="controls">
+												<input type="text" placeholder="" value="{{fullName}}"
+													class="input-xlarge" id="hovaten">
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Địa chỉ Email</label>
+											<div class="controls">
+												<input type="text" placeholder="" value="{{email}}" class="input-xlarge"
+													id="email">
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Điện thoại</label>
+											<div class="controls">
+												<input type="text" placeholder="" value="{{Phone}}" class="input-xlarge"
+													id="sodienthoai">
+											</div>
+										</div>
+										<div class="control-group">
+											<label class="control-label">Địa chỉ</label>
+											<div class="controls">
+												<input type="text" placeholder="" value="{{Address}}"
+													class="input-xlarge" id="diachi">
+											</div>
+										</div>
+									</div>
+									<div class="span4">
+										<h4> Phương thức thanh toán </h4>
+
+
+
+										<fieldset>
+											<label class="radio" for="register"></label>
+											<input type="radio" name="account" value="thanhtoanthe" id="register"
+												checked="checked">Thanh toán thẻ
+
+											<label class="radio" for="guest"></label>
+											<input type="radio" name="account" value="chuyenkhoan" id="guest">Chuyển
+											khoản
+
+											<br>
+										</fieldset>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
+								href="#collapseThree">Xác nhận đơn hàng</a>
+						</div>
+						<div id="collapseThree" class="accordion-body collapse">
+							<div class="accordion-inner">
+								<div class="row-fluid">
+									<div class="control-group">
+										<label for="textarea" class="control-label">Comments</label>
+										<div class="controls">
+											<textarea rows="3" id="textarea" class="span12"></textarea>
+										</div>
+									</div>
+									<button class="btn btn-primary pull-right" id="xacnhan">Xác nhận đơn hàng</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section style="background-color: #857474;" id="footer-bar">
+		<div class="row">
+			<div class="span3">
+				<h4>Điều Hướng</h4>
+				<ul class="nav">
+					<li><a href="/users/homepage">Trang chủ</a></li>
+					<li><a href="./about.html">Thông tin</a></li>
+					<li><a href="./contact.html">Liên hệ</a></li>
+					<li><a href="/users/cart">Giỏ hàng</a></li>
+					<li><a href="/users/login">Đăng nhập</a></li>
+				</ul>
+			</div>
+			<div class="span4">
+				<h4>My Account</h4>
+				<ul class="nav">
+					<li><a href="#">Tài khoản của tôi</a></li>
+					<li><a href="#">Lịch sử đặt hàng</a></li>
+					<li><a href="#">Danh sách yêu thích</a></li>
+					<!-- <li><a href="#">Làm mới</a></li> -->
+				</ul>
+			</div>
+			<div class="span5">
+				<p class="logo">
+					<!-- <img src="themes/images/logo.png" class="site_logo" alt=""> -->
+				<h4>TIKIHO</h4>
+				</p>
+				<p style="color: white;">Website chúng tôi chuyên cung cấp các sản phẩm chất lượng có uy tín và mới nhất
+					trên thị trường hiện nay
+					<br />Hãy ghé thăm trang web của chúng tôi và đừng bỏ lỡ các sản phẩm mới nhé!
+				</p>
+				<div style="margin-left: 60px;">
+					<a href="#" class="button">
+						<i class="fab fa-facebook-f fa-lg"></i>
+					</a>
+					<a href="#" class="button">
+						<i class="fab fa-twitter fa-lg"></i>
+					</a>
+					<a href="#" class="button">
+						<i class="fab fa-instagram fa-lg"></i>
+					</a>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<section id="copyright">
+		<span>Copyright 2020 bootstrappage template All right reserved.</span>
+	</section>
+</div>
+<script type="text/javascript" src="/../homepage/themes/js/common.js"></script>
+
+<script src="/../homepage/themes/js/handle.js"></script>

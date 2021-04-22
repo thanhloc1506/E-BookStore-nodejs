@@ -1,0 +1,253 @@
+<div class="page-container">
+    <!--/content-inner-->
+    <div class="left-content">
+        <div class="mother-grid-inner">
+            <!--header start here-->
+            <div class="header-main">
+
+
+
+                <div class="profile_details w3l">
+                    <ul>
+                        <li class="dropdown profile_details_drop">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <div class="profile_img">
+                                    <span class="prfil-img"><img src="../homepage/images/in4.jpg" alt=""> </span>
+                                    <div class="user-name">
+                                        <p>Thông tin</p>
+                                        <span>nhân viên</span>
+                                    </div>
+                                    <i class="fa fa-angle-down"></i>
+                                    <i class="fa fa-angle-up"></i>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu drp-mnu">
+                                <li> <a href="#"><i class="fa fa-cog"></i> Cài đặt</a> </li>
+                                <li> <a href="#"><i class="fa fa-user"></i> Thông tin</a> </li>
+                                <li> <a href="/staffs/logout"><i class="fa fa-sign-out"></i> Đăng xuất</a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="clearfix"> </div>
+            </div>
+            <!--heder end here-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/staffs/homepage">Trang chủ</a><i class="fa fa-angle-right"></i>Đơn
+                    hàng</li>
+            </ol>
+
+            <!-- grids -->
+            <div class="grids">
+
+
+
+                <div class="agile-calendar-grid">
+                    <div class="page">
+
+                        <div class="w3l-calendar-left">
+                            <div class="calendar-heading">
+                                <!-- 									<p>Noi dung</p>
+-->
+                                <div class="agile-tables">
+                                    <div class="w3l-table-info">
+                                        <h2>Danh sách đơn hàng</h2>
+
+                                        <table id="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Hóa đơn</th>
+                                                    <th>UID</th>
+                                                    <th>ISBN</th>
+                                                    <th>Hình thức</th>
+                                                    <th>Loại sách</th>
+                                                    <th>Số lượng</th>
+                                                    <th>Ngày lập</th>
+                                                    <th>Chỉnh sửa</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {{#each transactions}}
+                                                <tr class="danger">
+                                                    <td>{{this.HoaDon}}</td>
+                                                    <td>{{this.UID}}</td>
+                                                    <td>{{this.ISBN}}</td>
+                                                    <td>{{this.Loai}}</td>
+                                                    <td>{{this.LoaiSach}}</td>
+                                                    <td>{{this.SoLuong}}</td>
+                                                    <td>{{this.date}}</td>
+                                                    <td style="text-align: center;"><a class="agile-icon" href="#"
+                                                            data-toggle="modal" data-target="#myModal"><i
+                                                                class="fa fa-pencil-square-o"></i></a></td>
+                                                </tr>
+                                                {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Cập nhật trạng thái đơn hàng</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Mời bạn nhập tình trạng đơn hàng: </p>
+                                                    <form action="">
+                                                        <div class="form-group">
+                                                            <label for="ma">Mã đơn hàng:</label>
+                                                            <input type="text" class="form-control" id="ma">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="status">Tình trạng:</label>
+                                                            <input type="text" class="form-control" id="status">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-default">Cập nhật</button>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Close</button>
+                                                </div>
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"> </div>
+                        <section class="main-content">
+                            <div class="row">
+
+                                <div>
+                                    <nav id="menu" class="pull-left" style="margin-left: 50px;">
+                                        <ul>
+                                            <li><a href="#">Tìm kiếm giao dịch nâng cao</a>
+                                                <ul>
+                                                    <li><a href="/staffs/view/3">Sách điện tử được mua trong ngày</a></li>
+                                                    <li><a href="/staffs/view/4">Sách điện tử được thuê trong ngày</a></li>
+                                                    <li><a href="/staffs/view/8">Sách truyền thống được mua trong ngày</a></li>
+                                                    {{!-- <li><a href="/staffs/view/5">Sách được mua nhiều nhất trong một tháng</a></li> --}}
+                                                    <li><a href="/staffs/view/6">Tổng sách được mua trong ngày</a></li>
+                                                    <li><a href="/staffs/view/7">Tất cả sách được mua trong ngày</a></li>
+                                                    {{!-- <li><a href="#">Tổng số sách tính theo mỗi ISBN tại mỗi kho hàng trong tháng</a></li> --}}
+                                                    {{!-- <li><a href="#">Danh sách mua hàng được thanh toán bằng thẻ trong một ngày</a></li> --}}
+                                                    {{!-- <li><a href="#">Danh sách mua hàng được thanh toán bằng thẻ gặp sự cố trong một ngày</a></li> --}}
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <!-- //grids -->
+            <!--photoday-section-->
+
+
+            <div class="col-sm-4 wthree-crd">
+                <div class="card">
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!--//photoday-section-->
+            <!-- script-for sticky-nav -->
+            <script>
+                $(document).ready(function () {
+                    var navoffeset = $(".header-main").offset().top;
+                    $(window).scroll(function () {
+                        var scrollpos = $(window).scrollTop();
+                        if (scrollpos >= navoffeset) {
+                            $(".header-main").addClass("fixed");
+                        } else {
+                            $(".header-main").removeClass("fixed");
+                        }
+                    });
+
+                });
+            </script>
+            <!-- /script-for sticky-nav -->
+            <!--inner block start here-->
+            <div class="inner-block">
+
+            </div>
+            <!--inner block end here-->
+            <!--copy rights start here-->
+            <div class="copyrights">
+                <p>© 2020 N5QPT. All Rights Reserved | Design by <a href="http://w3layouts.com/"
+                        target="_blank">W3layouts</a> </p>
+            </div>
+            <!--COPY rights end here-->
+        </div>
+    </div>
+    <!--//content-inner-->
+    <!--/sidebar-menu-->
+    <div class="sidebar-menu">
+        <header class="logo1">
+            <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a>
+        </header>
+        <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
+        <div class="menu">
+            <ul id="menu">
+                <li><a href="/staffs/homepage"><i class="fa fa-tachometer"></i> <span>Trang chủ</span>
+                        <div class="clearfix"></div>
+                    </a></li>
+
+
+                <li id="menu-academico"><a href="/staffs/order"><i class="fa fa-envelope nav_icon"></i><span>Đơn
+                            hàng</span>
+                        <div class="clearfix"></div>
+                    </a></li>
+                <!-- <li><a href="gallery.html"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Gallery</span><div class="clearfix"></div></a></li> -->
+
+                <li id="menu-academico"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>Sản
+                            phẩm</span> <span class="fa fa-angle-right" style="float: right"></span>
+                        <div class="clearfix"></div>
+                    </a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-avaliacoes"><a href="/staffs/addBook">Quản lý sách</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="/staffs/addAuthor">Quản lý tác giả</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="/staffs/addNXB">Quản lý nhà xuất bản</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="/staffs/order">Quản lý đơn hàng</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="/staffs/warehouse">Quản lý kho</a></li>
+                    </ul>
+                </li>
+
+
+                <li id="menu-academico"><a href="#"><i class="fa fa-file-text-o"></i> <span>Khác</span> <span
+                            class="fa fa-angle-right" style="float: right"></span>
+                        <div class="clearfix"></div>
+                    </a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-boletim"><a href="calendar.html">Lịch</a></li>
+                        <!-- 					<li id="menu-academico-avaliacoes" ><a href="signin.html">Đăng nhập</a></li>
+							<li id="menu-academico-avaliacoes" ><a href="signup.html">Đăng ký</a></li> -->
+
+
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

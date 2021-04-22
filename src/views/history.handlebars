@@ -1,0 +1,169 @@
+<div id="top-bar" class="container">
+    <div class="row">
+        <div class="span4">
+            <form action="/users/searchText" method="post" class="search_form">
+                <input type="text" class="search-query form-control input-group" Placeholder="Search book."
+                    name="fieldBook">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary rounded-circle btnpro" type="submit" id="btn-search">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </span>
+
+            </form>
+            <form action="/users/publishing" method="post" class="search_form">
+                <input type="number" class="search-query form-control input-group" Placeholder="Publishing year."
+                    name="year">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary rounded-circle btnpro" type="submit" id="btn-search">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </span>
+            </form>
+        </div>
+        <div class="span8">
+            <div class="account pull-right">
+                <ul class="user-menu">
+                    <li><a href="/users/cart">Giỏ hàng</a></li>
+                    <li><a href="/users/checkout">Thanh toán</a></li>
+                    <li><a href="/users/profile">DPH</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wrapper" class="container">
+    <section class="navbar main-menu">
+        <div class="navbar-inner main-menu">
+            <a href="/users/homepage" class="logo pull-left">
+                <h4 class="title">TIKIHO </h4>
+            </a>
+            <nav id="menu" class="pull-right">
+                <ul>
+                    <li><a href="#">Tìm kiếm nâng cao</a>
+						<ul>
+							<li><a href="/users/tacgia-theloai">Tìm kiếm tác giả theo cùng 1 lĩnh vực</a></li>
+						</ul>
+					</li>
+					
+					<li><a href="#">Nhà xuất bản</a>
+						<ul>
+							{{#each NXB}}
+							<li><a href="/users/books/nxb/{{this.TenNhaXuatBan}}">{{this.TenNhaXuatBan}}</a></li>
+							{{/each}}
+						</ul>
+					</li>
+
+					<li><a href="#">Tác giả</a>
+						<ul>
+							{{#each tacgia}}
+							<li><a href="/users/books/tacgia/{{this.HoTen}}">{{this.HoTen}}</a></li>
+							{{/each}}
+						</ul>
+					</li>
+					<!-- <li><a href="./products.html">Man</a></li>						
+								<li><a href="./products.html">Hangbag</a></li> -->
+					<li><a href="#">Lĩnh vực</a>
+						<ul>
+							{{#each Ulinhvuc}}
+							<li><a href="/users/books/linhvuc/{{this.ALinhVuc}}">{{this.ALinhVuc}}</a></li>
+							{{/each}}
+						</ul>
+					</li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <section>
+
+    </section>
+    <br />
+    <br />
+    </section>
+    <section class="main-content">
+        <div class="row">
+            {{!-- ####################################################### --}}
+            <div class="span3">
+                <form action="/users/books/bookByDate/Date" method="get">
+                    <label for="birthdaytime">Tìm sách đã mua theo ngày:</label>
+                    <input type="date" name="date" style="border: 2px solid lightskyblue;">
+                    <button type="submit" style="background-color:rgba( 135,206,250,0.8);color: black;"><b>Search</b></button>
+                </form>
+            </div>
+            <div class="span3">
+                <form action="/users/books/bookByMonth/Month" method="get">
+                    <label>Tìm sách đã mua theo tháng:</label>
+                    <input type="text" name="month" style="border: 2px solid lightskyblue" placeholder="mm/yyyy">
+                    <button type="submit" style="background-color:rgba( 135,206,250,0.8);color: black;"><b>Search</b></button>
+                </form>
+            </div>
+            <div class="span3">
+                
+                <nav id="menu" class="pull-right">
+                    <ul>
+                        <li><a href="#">Tìm kiếm giao dịch nâng cao</a>
+                            <ul>
+                                <li><a href="/users/transactions/1">Giao dịch chưa hoàn tất</a></li>
+                                <li><a href="/users/transactions/2">Giao dịch thực hiện trong tháng</a></li>
+                                <li><a href="/users/transactions/3">Giao dịch gặp sự cố trong tháng</a></li>
+                                <li><a href="/users/transactions/4">Tổng sách theo từng thể loại trong tháng</a></li>
+                                <li><a href="/users/transactions/5">Giao dịch có số sách được mua nhiều nhất trong tháng</a></li>
+                                <li><a href="/users/transactions/6">Giao dịch vừa có sách điên tử vừa có sách truyền thống trong tháng</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            </div>
+        </section>
+    <section style="background-color: #857474;" id="footer-bar">
+        <div class="row">
+            <div class="span3">
+                <h4>Điều Hướng</h4>
+                <ul class="nav">
+                    <li><a href="/users/homepage">Trang chủ</a></li>
+                    <li><a href="./about.html">Thông tin</a></li>
+                    <li><a href="./contact.html">Liên hệ</a></li>
+                    <li><a href="/users/cart">Giỏ hàng</a></li>
+                    <li><a href="/users/register">Đăng nhập</a></li>
+                </ul>
+            </div>
+            <div class="span4">
+                <h4>My Account</h4>
+                <ul class="nav">
+                    <li><a href="/users/profile">Tài khoản của tôi</a></li>
+                    <li><a href="/users/history">Lịch sử đặt hàng</a></li>
+                    <li><a href="#">Danh sách yêu thích</a></li>
+                    <!-- <li><a href="#">Làm mới</a></li> -->
+                </ul>
+            </div>
+            <div class="span5">
+                <p class="logo">
+                    <!-- <img src="themes/images/logo.png" class="site_logo" alt=""> -->
+                <h4>TIKIHO</h4>
+                </p>
+                <p style="color: white;">Website chúng tôi chuyên cung cấp các sản phẩm chất lượng có uy tín và mới nhất
+                    trên thị trường hiện nay
+                    <br />Hãy ghé thăm trang web của chúng tôi và đừng bỏ lỡ các sản phẩm mới nhé!
+                </p>
+                <div style="margin-left: 60px;">
+                    <a href="#" class="button">
+                        <i class="fab fa-facebook-f fa-lg"></i>
+                    </a>
+                    <a href="#" class="button">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" class="button">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="copyright">
+        <span>Copyright 2020 bootstrappage template All right reserved.</span>
+    </section>
+</div>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>New Customer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+	<!-- bootstrap -->
+	<link href="../../homepage/bootstrap/css/bootstrap.min.css" rel="stylesheet">      
+	<link href="../../homepage/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">		
+	<link href="../../homepage/themes/css/bootstrappage.css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="../../homepage/themes/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="themes/css/font-awesome.min2.css"> -->
+	<link rel="stylesheet" type="text/css" href="../../homepage/themes/css/font-awesome.min3.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+	<!-- global styles -->
+	<link href="../../homepage/themes/css/flexslider.css" rel="stylesheet"/>
+	<link href="../../homepage/themes/css/main.css" rel="stylesheet"/>
+
+	<!-- scripts -->
+	<script src="../../homepage/themes/js/jquery-1.7.2.min.js"></script>
+	<script src="../../homepage/bootstrap/js/bootstrap.min.js"></script>				
+	<script src="../../homepage/themes/js/superfish.js"></script>	
+	<script src="../../homepage/themes/js/jquery.scrolltotop.js"></script>
+		<!--[if lt IE 9]>			
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>		
+		
+        {{{body}}}
+
+	</body>
+	<script type="text/javascript" src="themes/js/common.js"></script>
+	<script src="../../homepage/themes/js/jquery.flexslider-min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$(document).ready(function() {
+				$('.flexslider').flexslider({
+					animation: "fade",
+					slideshowSpeed: 4000,
+					animationSpeed: 600,
+					controlNav: false,
+					directionNav: true,
+						controlsContainer: ".flex-container" // the container that holds the flexslider
+					});
+			});
+		});
+		$(document).ready(function() {
+			$('#checkout').click(function (e) {
+				document.location.href = "checkout.html";
+			})
+		});
+	</script>
+	<script type="text/javascript">
+		var attempt=3;
+		function validate(){
+			var name=document.getElementById("name").value;
+			var address=document.getElementById("address").value;
+			var numberphone=document.getElementById("numberphone").value;
+			if(name!=null && address!=null && numberphone!=null )
+			{
+				alert('Update information successfully!');
+				window.location.href = "customer.html";
+				return false;
+			}
+			else{
+				attempt--;
+				alert("Fail to update");
+				return true;
+			}
+			if(attempt==0){
+				document.getElementById("name").disabled=true;
+				document.getElementById("address").disabled=true;
+				document.getElementById("numberphone").disabled=true;
+				document.getElementById("submit").disabled=true;
+				return false;
+			}
+		}
+		</script>
+	</html>	

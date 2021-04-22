@@ -1,0 +1,43 @@
+<legend> <form action="" method="POST" class="w-50">
+  <div class="form-group">
+    <label for="input1">First Name</label>
+    <input type="text" class="form-control" id="input1" 
+      placeholder="First Name">
+  </div>
+  <div class="form-group">
+    <label for="input2">Last Name</label>
+    <input type="text" class="form-control" id="input2" 
+      placeholder="Last Name">
+  </div>
+  <div class="form-group">
+    <label for="input3">User Name</label>
+    <input type="text" class="form-control" id="input3" 
+      placeholder="User Name">
+  </div>
+  <div class="form-group">
+    <label for="input4">Email address</label>
+    <input type="email" class="form-control" id="input4" aria-describedby="emailHelp"
+      placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="input5">Password</label>
+    <input type="password" class="form-control" id="input5"
+      placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="input6">Confirm Password</label>
+    <input type="password" class="form-control" id="input6"
+      placeholder="Confirm Password">
+  </div>
+  <button id="submit" class="btn btn-primary">Submit</button>
+</form> </legend>
+
+<script>
+    let data={ok:'ok'}
+    fetch({
+      method:'post',
+      url:"", // 'include', default: 'omit'
+       // 'GET', 'PUT', 'DELETE', etc.
+      body: JSON.stringify(data), // Coordinate the body type with 'Content-Type'
+    })
+</script>

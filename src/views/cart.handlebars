@@ -1,0 +1,333 @@
+<div id="top-bar" class="container">
+    <div class="row">
+        <div class="span4">
+            <form action="/users/books" method="post" class="search_form">
+                <input type="text" class="search-query form-control input-group" Placeholder="Search book."
+                    name="fieldBook">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary rounded-circle btnpro" type="submit" id="btn-search">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </span>
+
+            </form>
+            <form action="/users/books" method="post" class="search_form">
+                <input type="number" class="search-query form-control input-group" Placeholder="Publishing year."
+                    name="year">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary rounded-circle btnpro" type="submit" id="btn-search">
+                        <span class="fa fa-search"></span>
+                    </button>
+                </span>
+            </form>
+        </div>
+        <div class="span8">
+            <div class="account pull-right">
+                <ul class="user-menu">
+                    <li><a href="/users/profile">Tài Khoản</a></li>
+                    <li><a href="/users/cart"> Giỏ hàng </a></li>
+                    <li><a href="#"> Thanh toán </a></li>
+                    <li><a href="/users/logout"> Đăng xuất </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wrapper" class="container">
+    <section class="navbar main-menu">
+        <div class="navbar-inner main-menu">
+            <a href="/users/homepage" class="logo pull-left">
+                <h4 class="title">TIKIHO</h4>
+            </a>
+            <nav id="menu" class="pull-right">
+                <ul>
+                    <li><a href="#">Tìm kiếm nâng cao</a>
+                        <ul>
+                            <li><a href="/users/tacgia-theloai">Tìm kiếm tác giả theo cùng 1 lĩnh vực</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Nhà xuất bản</a>
+                        <ul>
+                            {{#each NXB}}
+                            <li><a href="/users/books/nxb/{{this.TenNhaXuatBan}}">{{this.TenNhaXuatBan}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Tác giả</a>
+                        <ul>
+                            {{#each tacgia}}
+                            <li><a href="/users/books/tacgia/{{this.HoTen}}">{{this.HoTen}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                    <!-- <li><a href="./products.html">Man</a></li>						
+								<li><a href="./products.html">Hangbag</a></li> -->
+                    <li><a href="#">Lĩnh vực</a>
+                        <ul>
+                            {{#each Ulinhvuc}}
+                            <li><a href="/users/books/linhvuc/{{this.ALinhVuc}}">{{this.ALinhVuc}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <section class="header_text sub">
+        <img class="pageBanner" src="../images/books/cart.PNG" style="width: 1240px; height: 300px" alt="New products">
+        <br />
+        <h4><span>Shopping Cart</span></h4>
+    </section>
+    <section class="main-content">
+        <div class="row">
+            <div class="span9">
+                <h4 class="title"><span class="text"><strong>Giỏ Hàng</strong> Của Bạn </span></h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Xóa</th>
+                            <th>Mặt hàng</th>
+                            <th> Tên Sản Phẩm </th>
+                            <th> Số Lượng </th>
+                            <th> Giá Tiền </th>
+                            <th> Tổng </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {{!-- Lấy từ database lên --}}
+                        {{#each carts}}
+                        <tr class="each">
+                            <td id="{{this.isbn}},{{this.mahoadon}},{{this.GiaTien}}"><input type="checkbox"
+                                    value="option1"></td>
+                            <td><a href="#"><img alt="" src="../images/books/{{this.isbn}}.png"
+                                        style="width: 100px; height: 150px;"></a></td>
+                            <td>{{this.TenSach}}</td>
+                            <td><input type="number" min=1 class="input-mini" name="soluong" value="{{this.soluong}}"
+                                    id="okkkk"></td>
+                            <td>{{this.GiaTien}}đ</td>
+                            <td>{{this.tong}}đ</td>
+                            <td>
+
+                                <select id="type" style="width: 80%;">
+                                    <option>Mua - Bản In</option>
+                                    <option>Mua - Bản Điện Tử</option>
+                                    <option>Thuê - Bản Điện Tử</option>
+                                </select>
+
+                                {{!-- <select id="type" style="width: 80%;">
+                                    <option>Mua - Bản Điện Tử</option>
+                                    <option>Mua - Bản In</option>
+                                    <option>Thuê - Bản Điện Tử</option>
+                                </select>
+
+                                <select id="type" style="width: 80%;">
+                                    <option>Thuê - Bản Điện Tử</option>
+                                    <option>Mua - Bản In</option>
+                                    <option>Mua - Bản Điện Tử</option>
+                                </select> --}}
+
+                            </td>
+
+                        </tr>
+                        {{/each}}
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td><strong>{{price}}đ</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <hr>
+                <p class="cart-total right">
+                    <strong>Tiền Hàng</strong>: {{price}}đ<br>
+                    <strong>Thuế môi trường (-5.000)</strong>: 5.000đ<br>
+                    <strong>Thuế GTGT (9.0%)</strong>: {{price2}}đ<br>
+                    <strong> Tổng </strong>: {{price3}}đ<br>
+                </p>
+                <hr />
+                <p class="buttons center">
+                    <button class="btn" type="button" id='capnhat'> Cập Nhật </button>
+                    <button class="btn" type="button" id="cont"> Tiếp Tục </button>
+                    <button class="btn btn-inverse" type="submit" id="checkout">Thanh Toán</button>
+                </p>
+            </div>
+            <div class="span3 col">
+                <div class="block">
+                    {{!-- Thêm từ folder --}}
+                    <ul class="nav nav-list">
+                        <li class="nav-header">Sách khác</li>
+                        <li><a href="#">Khoa Học kỹ thuật</a></li>
+                        <li class="active"><a href="#">Kỹ năng sống</a></li>
+                        <li><a href="#">Kinh Tế</a></li>
+                        <li><a href="#">Kỹ năng sống </a></li>
+                        <li><a href="#">Light novel </a></li>
+                        <li><a href="#">Truyện tranh </a></li>
+                    </ul>
+                    <br />
+                    <ul class="nav nav-list below">
+                        <li class="nav-header">Nhà xuất bản</li>
+                        <li><a href="#">Kim Đồng</a></li>
+                        <li><a href="#">Trẻ</a></li>
+                        <li><a href="#">Hồng Đức</a></li>
+                    </ul>
+                </div>
+                <div class="block">
+                    <h4 class="title">
+                        <span class="pull-left"><span class="text">Đề xuất</span></span>
+                        <span class="pull-right">
+                            <a class="left button" href="#myCarousel" data-slide="prev"></a><a class="right button"
+                                href="#myCarousel" data-slide="next"></a>
+                        </span>
+                    </h4>
+                    <div id="myCarousel" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="active item">
+                                <ul class="thumbnails listing-products">
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <span class="sale_tag"></span>
+                                            <a href="/users/book_detail/1.png"><img alt="" src="../images/books/1.png"
+                                                    style="width: 150px; height: 200px;"></a><br />
+                                            <a href="/users/book_detail/1.png" class="title">Hoàng tử
+                                                bé</a><br />
+                                            {{!-- <a href="#" class="category">ASUS Laptop</a> --}}
+                                            <p class="price">100.000đ</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="item">
+                                <ul class="thumbnails listing-products">
+                                    <li class="span3">
+                                        <div class="product-box">
+                                            <a href="/users/book_detail/2.png"><img alt="" src="../images/books/2.png"
+                                                    style="width: 150px; height: 200px;"></a><br />
+                                            <a href="/users/book_detail/2.png" class="title">Đọc sách điểm
+                                                sách</a><br />
+                                            {{!-- <a href="#" class="category">HP Laptop</a> --}}
+                                            <p class="price">90.000đ</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="background-color: #857474;" id="footer-bar">
+        <div class="row">
+            <div class="span3">
+                <h4>Điều Hướng</h4>
+                <ul class="nav">
+                    <li><a href="/users/homepage">Trang chủ</a></li>
+                    <li><a href="/users/about">Thông tin</a></li>
+                    <li><a href="/users/contact">Liên hệ</a></li>
+                    <li><a href="/users/cart">Giỏ hàng</a></li>
+                    <li><a href="/users/login">Đăng nhập</a></li>
+                </ul>
+            </div>
+            <div class="span4">
+                <h4>My Account</h4>
+                <ul class="nav">
+                    <li><a href="#">Tài khoản của tôi</a></li>
+                    <li><a href="#">Lịch sử đặt hàng</a></li>
+                    <li><a href="#">Danh sách yêu thích</a></li>
+                    <!-- <li><a href="#">Làm mới</a></li> -->
+                </ul>
+            </div>
+            <div class="span5">
+                <p class="logo">
+                    <!-- <img src="themes/images/logo.png" class="site_logo" alt=""> -->
+                <h4>TIKIHO</h4>
+                </p>
+                <p style="color: white;">Website chúng tôi chuyên cung cấp các sản phẩm chất lượng có uy tín và mới nhất
+                    trên thị trường hiện nay
+                    <br />Hãy ghé thăm trang web của chúng tôi và đừng bỏ lỡ các sản phẩm mới nhé!
+                </p>
+                <div style="margin-left: 60px;">
+                    <a href="#" class="button">
+                        <i class="fab fa-facebook-f fa-lg"></i>
+                    </a>
+                    <a href="#" class="button">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" class="button">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="copyright">
+        <span>Copyright 2020 bootstrappage template All right reserved.</span>
+    </section>
+
+</div>
+
+<script src="../homepage/themes/js/common.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#checkout').click(function (e) {
+            a = $('.each')
+            let b = []
+            a.each(function (index) {
+                b.push($(this).children()[0].id.split(','))
+                b[index].push($(this).children()[3].firstChild.value)
+                b[index].push(($(this).children().children("select").val()))
+            });
+            $.ajax({
+                url: "",
+                type: 'post',
+                data: {
+                    type: "thanhtoan",
+                    data: JSON.stringify(b)
+                },
+                success: function (response) {
+                    console.log(response);
+                    window.location.href = '/users/checkout'
+                },
+                error: function (data) {
+                    console.log('error')
+
+                }
+            })
+        });
+        $('#capnhat').click(function (e) {
+            a = $('.each')
+            let b = []
+            a.each(function (index) {
+                b.push($(this).children()[0].id.split(','))
+                b[index].push($(this).children()[3].firstChild.value)
+                b[index].push(($(this).children().children("select").val()))
+                b[index].push($(this).children().children('input')[0].checked)
+            })
+            console.log(b)
+            $.ajax({
+                url: "",
+                type: 'post',
+                data: {
+                    type: "capnhat",
+                    data: JSON.stringify(b)
+                },
+                success: function (response) {
+                    console.log(response);
+                    window.location.href = '/users/cart'
+                },
+                error: function (data) {
+                    console.log('error')
+                }
+            })
+        })
+    })
+</script>

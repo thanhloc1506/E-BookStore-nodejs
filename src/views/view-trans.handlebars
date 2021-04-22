@@ -1,0 +1,235 @@
+<div id="top-bar" class="container">
+    <div class="row">
+        <div class="span4">
+            <form method="POST" class="search_form">
+                <div class="input-group">
+                    <input type="text" class="search-query form-control input-group" Placeholder="My laptop.">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary rounded-circle btnpro" id="btn-search" type="button">
+                            <span class=" fas fa-search"></span>
+                        </button>
+                    </span>
+
+                </div>
+            </form>
+        </div>
+        <div class="span8">
+            <div class="account pull-right">
+                <ul class="user-menu">
+                    <li><a href="/users/cart">Giỏ hàng</a></li>
+                    <li><a href="checkout.html">Thanh toán</a></li>
+                    <li><a href="/users.profile">DPH</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wrapper" class="container">
+    <section class="navbar main-menu">
+        <div class="navbar-inner main-menu">
+            <a href="/users/homepage" class="logo pull-left">
+                <h4 class="title">TIKIHO </h4>
+            </a>
+            <nav id="menu" class="pull-right">
+                <ul>
+                    <li><a href="#">Tìm kiếm nâng cao</a>
+                        <ul>
+                            <li><a href="/users/tacgia-theloai">Tìm kiếm tác giả theo cùng 1 lĩnh vực</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Nhà xuất bản</a>
+                        <ul>
+                            {{#each NXB}}
+                            <li><a href="/users/books/nxb/{{this.TenNhaXuatBan}}">{{this.TenNhaXuatBan}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </li>
+
+                    <li><a href="#">Tác giả</a>
+                        <ul>
+                            {{#each tacgia}}
+                            <li><a href="/users/books/tacgia/{{this.HoTen}}">{{this.HoTen}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                    <!-- <li><a href="./products.html">Man</a></li>						
+								<li><a href="./products.html">Hangbag</a></li> -->
+                    <li><a href="#">Lĩnh vực</a>
+                        <ul>
+                            {{#each Ulinhvuc}}
+                            <li><a href="/users/books/linhvuc/{{this.ALinhVuc}}">{{this.ALinhVuc}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <section class="homepage-slider" id="home-slider">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+
+                    <img src="/../images/books/bia1.jpg" style="width: 1300px; height: 250px;" alt="anh bia 1" />
+                    <div class="intro">
+                        <!--<h1>Laptop mua online</h1>
+							<p><span>Giảm thêm đến 1.000.000đ</span></p>
+							<p><span>Áp dụng kèm theo khuyến mãi trả thẳng khác</span></p> -->
+                    </div>
+                </li>
+                <li>
+                    <img src="/../images/books/bia2.PNG" style="width: 1300px; height: 250px;" alt="anh bia 2" />
+
+                </li>
+                <li>
+                    <img src="/../images/books/bia3.png" style="width: 1300px; height: 250px;" alt="anh bia 3" />
+
+                </li>
+                <li>
+                    <img src="/../images/books/bia4.png" style="width: 1300px; height: 250px;" alt="anh bia 4" />
+
+                </li>
+                <li>
+                    <img src="/../images/books/bia5.jpg" style="width: 1300px; height: 250px;" alt="anh bia 5" />
+
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="header_text">
+        Website chúng tôi chuyên cung cấp các sản phẩm chất lượng có uy tín và mới nhất trên thị trường hiện nay
+        <br />Hãy ghé thăm trang web của chúng tôi và đừng bỏ lỡ các sản phẩm mới nhé!
+
+    </section>
+    <br />
+    <br />
+    {{#if month}}
+    <h4><span>Tháng {{month}} năm {{year}}</span></h4>
+    {{/if}}
+    </section>
+    <section class="main-content">
+        <div class="row">
+            <div class="span5">
+                <h4 class="title"><span class="text"><strong>Chọn</strong> tháng</span></h4>
+                <form action="" method="get">
+                    <input type="hidden" name="next" value="/">
+                    <fieldset>
+                        <div class="control-group">
+                            <label>Tìm giao dịch đã mua theo tháng:</label>
+                            <input type="text" name="month" style="border: 2px solid lightskyblue"
+                                placeholder="mm/yyyy">
+                        </div>
+                        {{#if type}}
+                        <div class="control-group">
+                            <label>Chọn lĩnh vực:</label>
+                            <input type="text" name="linhvuc" style="border: 2px solid lightskyblue"
+                                placeholder="Lĩnh vực">
+                        </div>
+                        {{/if}}
+                        <div class="control-group">
+                            <input tabindex="3" class="btn btn-primary large" type="submit" id="submit" value="Chọn">
+                            <hr>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="span7">
+                {{#if type}}
+                <h4 class="title"><span class="text">Hiển thị giao dịch</span></h4>
+                <table class="table table-{1:striped|sm|bordered|hover|inverse} table-inverse table-bordered">
+                    <thead class="thead-inverse|thead-default table-bordered table-success">
+                        <tr>
+                            <th>Thể loại</th>
+                            <th>Số lượng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row">{{linhvuc}}</td>
+                            <td scope="row">{{count}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                {{else}}
+                <h4 class="title"><span class="text">Hiển thị giao dịch</span></h4>
+                <table class="table table-{1:striped|sm|bordered|hover|inverse} table-inverse table-bordered">
+                    <thead class="thead-inverse|thead-default table-bordered table-success">
+                        <tr>
+                            <th>Hóa đơn</th>
+                            <th>ISBN</th>
+                            <th>Hình thức</th>
+                            <th>Loại sách</th>
+                            <th>Số lượng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each transactions}}
+                        <tr>
+                            <td scope="row">{{this.HoaDon}}</td>
+                            <td scope="row">{{this.ISBN}}</td>
+                            <td scope="row">{{this.Loai}}</td>
+                            <td scope="row">{{this.LoaiSach}}</td>
+                            <td scope="row">{{this.SoLuong}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{/if}}
+            </div>
+        </div>
+
+</div>
+</section>
+<section style="background-color: #857474;" id="footer-bar">
+    <div class="row">
+        <div class="span3">
+            <h4>Điều Hướng</h4>
+            <ul class="nav">
+                <li><a href="/users/homepage">Trang chủ</a></li>
+                <li><a href="#">Thông tin</a></li>
+                <li><a href="#">Liên hệ</a></li>
+                <li><a href="/users/cart">Giỏ hàng</a></li>
+                <li><a href="/users/login">Đăng nhập</a></li>
+            </ul>
+        </div>
+        <div class="span4">
+            <h4>My Account</h4>
+            <ul class="nav">
+                <li><a href="/users/profile">Tài khoản của tôi</a></li>
+                <li><a href="/users/history">Lịch sử đặt hàng</a></li>
+                <li><a href="#">Danh sách yêu thích</a></li>
+                <!-- <li><a href="#">Làm mới</a></li> -->
+            </ul>
+        </div>
+        <div class="span5">
+            <p class="logo">
+                <!-- <img src="themes/images/logo.png" class="site_logo" alt=""> -->
+            <h4>TIKIHO</h4>
+            </p>
+            <p style="color: white;">Website chúng tôi chuyên cung cấp các sản phẩm chất lượng có uy tín và mới nhất
+                trên thị trường hiện nay
+                <br />Hãy ghé thăm trang web của chúng tôi và đừng bỏ lỡ các sản phẩm mới nhé!
+            </p>
+            <div style="margin-left: 60px;">
+                <a href="#" class="button">
+                    <i class="fab fa-facebook-f fa-lg"></i>
+                </a>
+                <a href="#" class="button">
+                    <i class="fab fa-twitter fa-lg"></i>
+                </a>
+                <a href="#" class="button">
+                    <i class="fab fa-instagram fa-lg"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="copyright">
+    <span>Copyright 2020 bootstrappage template All right reserved.</span>
+</section>
+</div>
